@@ -30,10 +30,32 @@ class Tree implements TreeMethods {
         if (left != null) {
             left.inorder();
         }
-        System.out.println(data);
+        System.out.print(data+"\t");
         if (right != null) {
             right.inorder();
         }
+    }
+
+    @Override
+    public void postOrder() {
+        System.out.print(data+"\t");
+        if (left != null) {
+            left.postOrder();
+        }
+        if (right != null) {
+            right.postOrder();
+        }
+    }
+
+    @Override
+    public void preOrder() {
+        if (left != null) {
+            left.postOrder();
+        }
+        if (right != null) {
+            right.postOrder();
+        }
+        System.out.print(data+"\t");
     }
 }
 
@@ -44,6 +66,11 @@ public class BinarySearchTree {
         tree.create(9);
         tree.create(20);
         tree.create(15);
+        System.out.print("Inorder: ");
         tree.inorder();
+        System.out.print("Postorder: ");
+        tree.postOrder();
+        System.out.print("Preorder: ");
+        tree.preOrder();
     }
 }
